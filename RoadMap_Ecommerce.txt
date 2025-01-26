@@ -1,0 +1,255 @@
+Day 1: Project Setup
+
+Frontend: Mockup of a basic navigation bar with placeholders for links like "Home," "Products," "Cart," and "Login."
+
+Backend: A diagram showing the connection between Angular (frontend) and Spring Boot (backend) with REST APIs.
+
+Day 2: User Authentication
+
+Frontend:
+
+Login Page: A clean and simple form with fields for email and password.
+
+Registration Page: Form with fields for name, email, password, and confirm password.
+
+Backend: Flowchart of the user authentication process with JWT (user -> login API -> JWT token).
+
+Day 3: Database Setup
+
+Database Diagram: ERD (Entity Relationship Diagram) for Users, Products, Orders, and Order_Items tables.
+
+Day 4: Basic UI Structure
+
+Mockup of the basic structure:
+
+Header: A navigation bar with a logo, search bar, and links (Products, Cart, Login).
+
+Footer: Placeholder for company info, contact links, and social media icons.
+
+Day 5: Product Catalog Backend
+
+API flow diagram showing the process for fetching products from the database via Spring Boot and sending them to Angular.
+
+Day 6: Product Catalog Frontend
+
+Mockup of the product listing page:
+
+A grid layout with product cards showing an image, name, price, and a "View Details" button.
+
+Mockup of the product details page with a larger product image, description, price, and an "Add to Cart" button.
+
+Day 7: Search and Filter
+
+Mockup of a search bar at the top of the product listing page.
+
+Sidebar with category filters (e.g., Electronics, Clothing, Home Appliances).
+
+Day 8: Shopping Cart Backend
+
+Flowchart showing the interaction between the frontend and backend for adding/updating/deleting items in the cart.
+
+Day 9: Shopping Cart Frontend
+
+Mockup of the shopping cart page:
+
+List of items with product name, image, price, quantity, and a "Remove" button.
+
+A summary section showing the total price and a "Proceed to Checkout" button.
+
+Day 10: Checkout Backend
+
+API flow diagram showing how the checkout API handles user orders, payment, and saves order details in the database.
+
+Day 11: Checkout Frontend
+
+Mockup of the checkout page:
+
+Address form with fields like name, phone number, address, city, state, and zip code.
+
+Payment method section with radio buttons for credit card, PayPal, etc.
+
+Day 12: Payment Integration
+
+Diagram showing the flow between the Angular app, backend, and payment gateway (e.g., Stripe or PayPal).
+
+Day 13: Order History
+
+Mockup of the order history page:
+
+List of past orders with order ID, date, total amount, and status (e.g., Delivered, Processing).
+
+Day 14: Testing and Refinement
+
+No specific images; focus on testing the full user flow.
+
+Day 15: Admin Dashboard Backend
+
+Flowchart showing the APIs for product management and order management for admins.
+
+Day 16: Admin Dashboard Frontend
+
+Mockup of the admin dashboard:
+
+Product Management Page: Table with columns for product name, price, category, stock, and actions (Edit/Delete).
+
+Order Management Page: Table with columns for order ID, user name, order date, total, and status.
+
+Day 17–20: Deployment
+
+Diagram of the deployment pipeline:
+
+Frontend (Angular) deployed to Netlify/Vercel.
+
+Backend (Spring Boot) deployed to Heroku/AWS.
+
+Day 1: Project Setup
+
+Set up Angular and Spring Boot projects.
+
+Configure routing in Angular.
+
+Configure a basic REST API in Spring Boot.
+
+Day 2: User Authentication
+
+Backend: Implement user registration, login, and JWT authentication.
+
+Frontend: Create login and registration forms.
+
+Test authentication APIs from the Angular app.
+
+Day 3: Database Setup
+
+Configure the database (e.g., MySQL).
+
+Create user, product, and order tables in the database.
+
+Test database connectivity in Spring Boot.
+
+Day 4: Basic UI Structure
+
+Create a basic layout for the e-commerce site:
+
+Header with navigation links.
+
+Footer.
+
+Placeholder for product catalog and cart.
+
+Day 5: Product Catalog Backend
+
+Create entities and repositories for products.
+
+Add APIs to list all products and fetch product details.
+
+Seed the database with some sample products.
+
+Day 6: Product Catalog Frontend
+
+Display the list of products in the Angular app.
+
+Create a product details page with a "View Details" button.
+
+Day 7: Search and Filter
+
+Backend: Add filtering and searching APIs for products.
+
+Frontend: Implement a search bar and category filters.
+
+Week 2: Shopping Cart and Checkout
+
+Day 8: Shopping Cart Backend
+
+Create APIs to add, update, and delete items in the cart.
+
+Associate the cart with users.
+
+Day 9: Shopping Cart Frontend
+
+Build a shopping cart page in Angular.
+
+Add buttons for adding, updating, and removing items.
+
+Day 10: Checkout Backend
+
+Create entities for orders and order items.
+
+Implement APIs for placing an order and saving shipping details.
+
+Day 11: Checkout Frontend
+
+Build a checkout form for address and payment details.
+
+Submit the form to place an order.
+
+Day 12: Payment Integration
+
+Integrate a payment gateway like Stripe or PayPal.
+
+Implement a simple payment flow for checkout.
+
+Day 13: Order History
+
+Backend: Create APIs to fetch user order history.
+
+Frontend: Build an order history page.
+
+Day 14: Testing and Refinement
+
+Test the complete flow (product browsing, cart, checkout).
+
+Fix any bugs or issues.
+
+Week 3: Admin Dashboard and Deployment
+
+Day 15: Admin Dashboard Backend
+
+Create APIs to:
+
+Add, edit, and delete products.
+
+View all orders and update their statuses.
+
+Day 16: Admin Dashboard Frontend
+
+Build pages for managing products and orders.
+
+Add form validation for product inputs.
+
+Day 17: Deploy Backend
+
+Deploy the Spring Boot application to Heroku/AWS/Azure.
+
+Test the APIs on the live backend.
+
+Day 18: Deploy Frontend
+
+Deploy the Angular app to Netlify/Vercel/AWS.
+
+Connect the frontend with the deployed backend.
+
+Day 19: Final Testing
+
+Test the application end-to-end on the production environment.
+
+Fix any issues identified.
+
+Day 20: Documentation
+
+Write documentation for:
+
+How to run the project locally.
+
+APIs and database structure.
+
+Deployment process.
+
+Optional Features (Week 4)
+
+User Roles: Add admin and user roles with role-based access control.
+
+Reviews and Ratings: Allow users to review and rate products.
+
+Wishlist: Add functionality for users to save products to a wishlist.
+
+Notifications: Send email notifications for order confirmation.
