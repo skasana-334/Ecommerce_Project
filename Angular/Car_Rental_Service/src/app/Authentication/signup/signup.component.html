@@ -1,0 +1,42 @@
+
+<div *ngIf="!invalidForm" class="register-container">
+  <h2>Register</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="OnSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" class="form-control" formControlName="name" />
+      <div *ngIf="signupForm.get('name')?.hasError('minlength') && signupForm.get('name')?.touched">
+        <p>Name should be valid</p>
+       </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" class="form-control" formControlName="email"  />
+      <div *ngIf="signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched">
+        <p>Email should be valid</p>
+       </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password"  name="password" class="form-control" formControlName="password"  />
+      <div *ngIf="signupForm.get('password')?.hasError('minlength') && signupForm.get('password')?.touched">
+        <p>Password should be valid</p>
+       </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" type="password" name="confirmPassword" class="form-control" formControlName="confirm_password" />
+     <div *ngIf="passwordMismatch">
+      <p>Password Must Match</p>
+     </div>
+    </div>
+
+    <button type="submit"  class="register-btn">
+      Register
+    </button>
+  </form>
+</div>
+<app-show-error *ngIf="invalidForm" (show)="ShowForm()"></app-show-error>
