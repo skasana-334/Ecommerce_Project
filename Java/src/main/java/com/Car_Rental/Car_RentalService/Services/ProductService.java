@@ -1,29 +1,19 @@
 package com.Car_Rental.Car_RentalService.Services;
 
-import com.Car_Rental.Car_RentalService.Repositories.ProductRepo;
+import com.Car_Rental.Car_RentalService.Exception.ProductException;
+import com.Car_Rental.Car_RentalService.Request.ProductRequest;
 import com.Car_Rental.Car_RentalService.model.Product;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
-/*   Business Logic Layer*/
-@Service
-public class ProductService {
-    @Autowired private ProductRepo prod_repo;
-    public List<Product> getAllProducts(){
-        return prod_repo.findAll();
-    }
-    public Product addProduct(Product product) {
-        return prod_repo.save(product);
-    }
-    public Product getProductById(Long id) {
-        return prod_repo.findById(id).orElse(null);  // ✅ Automatically available
-    }
+public interface ProductService {
+    public Product createProduct(ProductRequest req);
+    public String deleteProduct(Long id) throws ProductException;
+    public Product updateProduct(Long id,Product product) throws ProductException;
+    public Product findById(Long id) throws ProductException;
+    public List<Product> findByCategory(String category);
 
-    // Delete product
-    public void deleteProduct(Long id) {
-        prod_repo.deleteById(id);  // ✅ Automatically available
-    }
 
+    Page<Product> getAllProduct(String category, List<String> size, List<String> color, Integer minPrice, Integer maxPrice, String sort, String stock, Integer pageno, Integer pagesize);
 }

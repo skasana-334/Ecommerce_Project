@@ -1,30 +1,63 @@
 package com.Car_Rental.Car_RentalService.model;
 
 import jakarta.persistence.*;
-import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "orders")
-@NoArgsConstructor
-@AllArgsConstructor
-public class Order {
+@Table(name="orders")
+public class Order{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
+    @Column(name="order_id")
+    private String orderId;
 
-    private Date orderDate;
+    @ManyToOne
+    private User user;
+
+    @OneToMany(mappedBy="order", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems = new ArrayList<>();
+
+    private LocalDateTime orderDate;
+
+    private LocalDateTime deliveryDate;
+
+    @OneToOne
+    private Address shippingAddress;
+
+    @Embedded
+    private PaymentDetails paymentDetails = new PaymentDetails();
+
     private double totalPrice;
-    private String status;
 
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
+    private String staus;
+    private int total_items;
+    private LocalDateTime createdAt;
+    public Order(){}
+
+    public Order(String orderId, User user, List<OrderItem> orderItems, LocalDateTime orderDate, LocalDateTime deliveryDate, Address shippingAddress, PaymentDetails paymentDetails, double totalPrice, String staus, int total_items, LocalDateTime createdAt) {
+        this.orderId = orderId;
+        this.user = user;
+        this.orderItems = orderItems;
+        this.orderDate = orderDate;
+        this.deliveryDate = deliveryDate;
+        this.shippingAddress = shippingAddress;
+        this.paymentDetails = paymentDetails;
+        this.totalPrice = totalPrice;
+        this.staus = staus;
+        this.total_items = total_items;
+        this.createdAt = createdAt;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
-        this.orderItems = orderItems;
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public User getUser() {
@@ -35,12 +68,44 @@ public class Order {
         this.user = user;
     }
 
-    public String getStatus() {
-        return status;
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public LocalDateTime getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(LocalDateTime deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public Address getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(Address shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
+
+    public PaymentDetails getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    public void setPaymentDetails(PaymentDetails paymentDetails) {
+        this.paymentDetails = paymentDetails;
     }
 
     public double getTotalPrice() {
@@ -51,28 +116,27 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
+    public String getStaus() {
+        return staus;
     }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+    public void setStaus(String staus) {
+        this.staus = staus;
     }
 
-    public Long getId() {
-        return id;
+    public int getTotal_items() {
+        return total_items;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTotal_items(int total_items) {
+        this.total_items = total_items;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    private List<OrderItem> orderItems;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }
