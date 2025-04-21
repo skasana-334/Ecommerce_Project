@@ -69,6 +69,10 @@ import java.util.List;
             this.firstName = firstName;
         }
 
+        public Long getUser_id() {
+            return user_id;
+        }
+
         public String getLastName() {
             return lastName;
         }
